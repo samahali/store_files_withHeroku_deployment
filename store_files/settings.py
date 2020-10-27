@@ -80,12 +80,13 @@ WSGI_APPLICATION = 'store_files.wsgi.application'
 DATABASES = {
     # connection with maria DB through mysql engine
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
+        # 'ENGINE': 'django.db.backends.mysql',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'd3hcvhn375nudn',
         'USER': 'hrozsxnmrkbooh',
         'PASSWORD': "a1c24df99d25f20fffd379c610f402734d38b1b4644709b14b78c048968ee042",
         'HOST': "ec2-34-232-24-202.compute-1.amazonaws.com",
-        'PORT': "3306",
+        'PORT': "5432",
         'OPTIONS': {
             'charset': 'utf8',
         }
