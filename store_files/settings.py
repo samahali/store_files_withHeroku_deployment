@@ -25,7 +25,7 @@ SECRET_KEY = '5gvb4$cjf0cxj8us-0-d!x++y+@vo(xgc(3+4lnd+smp2754vo'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['deployuploadedfiles.herokuapp.com']
 
 
 # Application definition
@@ -43,6 +43,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'whitenoise.middleware.WhiteNoiseMiddleware', # added by me
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -80,11 +81,11 @@ DATABASES = {
     # connection with maria DB through mysql engine
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'PrivateUniversities',
-        'USER': 'private',
-        'PASSWORD': "private@123",
-        'HOST': "192.168.200.18",
-        'PORT': "3307",
+        'NAME': 'store',
+        'USER': 'root',
+        'PASSWORD': "test@123",
+        'HOST': "127.0.0.1",
+        'PORT': "3306",
         'OPTIONS': {
             'charset': 'utf8',
         }
@@ -133,3 +134,5 @@ STATICFILES_DIRS = (
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
